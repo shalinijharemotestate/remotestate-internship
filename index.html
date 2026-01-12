@@ -1,177 +1,165 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@400;600&display=swap" rel="stylesheet">
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Neptune Documents</title>
-  <link rel="stylesheet" href="style.css" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
 <div class="app">
+
   <aside class="sidebar">
+
     <img src="image/Union.svg" alt="Neptune Logo" class="logo" />
-    <div class="user-card dropdown">
-      <div class="avatar">
-        <img src="image/Logo.png" alt="User Avatar">
-      </div>
-      <div class="user-info">
-        <p class="name">JESSICA THOMPSON</p>
-        <span class="role">Primary user</span>
-      </div>
-      <div class="dropdown-content">
-        <p>Logout</p>
+
+    <div class="user-card">
+      <img src="image/logo2.png">
+      <div>
+        <div class="user-name">Jessica Thompson</div>
+        <div class="user-role">Primary User</div>
       </div>
     </div>
 
     <nav class="menu">
       <div class="menu-item">
-        <img src="image/home 1 (1).svg" />
+        <img src="image/home 1 (1).svg">
         <span>Home</span>
       </div>
+
       <div class="menu-item active">
-        <img src="image/file-text 1.svg" alt="documents-logo" />
+        <img src="image/file-text 1.svg">
         <span>Documents</span>
       </div>
+
       <div class="menu-item">
-        <img src="image/message-circle 1.svg" alt="message-circlelogo"/>
+        <img src="image/message-circle 1.svg">
         <span>Chat with Neptune</span>
       </div>
+
       <div class="menu-item">
-        <img src="image/help-circle 1.svg" alt="help-logo" />
+        <img src="image/help-circle 1.svg">
         <span>Help</span>
       </div>
+
       <div class="menu-item">
-        <img src="image/settings 1.svg" alt="settings-logo " />
+        <img src="image/settings 1.svg">
         <span>Settings</span>
       </div>
     </nav>
 
-    <div class="contact">
-      <img src="image/phone 1.png" alt="Phone" class="phone-icon" />
-
-      <p class="contact-title">Having trouble?</p>
-      <p class="contact-desc">
-        Feel free to contact us and we will always help you through the process
-      </p>
-      <button class="contact-btn">Contact us</button>
+    <div class="sidebar-footer">
+      <img src="image/phone 1.png">
+      <div class="footer-title">Having trouble?</div>
+      <div class="footer-text">
+        Feel free to contact us and we will always help you through the process.
+      </div>
+      <button>Contact us</button>
     </div>
+
   </aside>
 
   <main class="main">
+
     <div class="top-bar">
-      <p class="breadcrumb">Home &gt; Documents</p>
-      <input type="text" placeholder="Search documents" />
+      <div class="breadcrumb">Home &gt; Documents</div>
+
+      <div class="search-box">
+        <input type="text" placeholder="Search documents">
+        <img src="image/Layer_1.png">
+      </div>
     </div>
 
     <h1>My Documents</h1>
 
-    <div class="table-box">
+    <div class="table-wrapper">
+
       <table>
         <thead>
           <tr>
+            <th><input type="checkbox"></th>
             <th>Document Name</th>
             <th>Status</th>
             <th>Last Modified</th>
+            <th></th>
+            <th></th>
           </tr>
         </thead>
+
         <tbody>
+
           <tr>
-            <td class="doc-cell">
-              <input type="checkbox" class="doc-checkbox" />
-              <input type="text" class="doc-title" value="Title of Document Goes Here" />
-            </td>
+            <td><input type="checkbox"></td>
+            <td class="doc-title">Title of Document Goes Here</td>
             <td><span class="badge blue">Needs Signing</span></td>
-            <td class="date-time">
-              <span>10/22/2024</span><br>
-              <span>2:01 pm</span>
-            </td>
-            <td class="action-cell">
-              <button>Sign now</button>
-              <span class="dots">⋮</span>
-            </td>
+            <td class="date">10/22/2024<br>2:01 pm</td>
+            <td><button class="btn">Sign now</button></td>
+            <td class="dots">⋮</td>
           </tr>
 
           <tr>
-            <td class="doc-cell">
-              <input type="checkbox" class="doc-checkbox" />
-              <input type="text" class="doc-title" value="Title of Document Goes Here" />
+            <td><input type="checkbox"></td>
+            <td class="doc-title">Title of Document Goes Here</td>
+            <td>
+              <span class="badge grey">Pending</span>
+              <div class="sub">Waiting for 1 person</div>
             </td>
-            <td><span class="badge grey">Pending</span></td>
-            <td class="date-time">
-              <span>10/22/2024</span><br>
-              <span>2:01 pm</span>
-            </td>
-            <td class="action-cell">
-              <button>Preview</button>
-              <span class="dots">⋮</span>
-            </td>
-          </tr>
-          <tr>
-            <td class="doc-cell">
-              <input type="checkbox" class="doc-checkbox" />
-              <input type="text" class="doc-title" value="Title of Document Goes Here" />
-            </td>
-            <td><span class="badge grey">Pending</span></td>
-            <td class="date-time">
-              <span>10/22/2024</span><br>
-              <span>2:01 pm</span>
-            </td>
-            <td class="action-cell">
-              <button>Preview</button>
-              <span class="dots">⋮</span>
-            </td>
+            <td class="date">10/22/2024<br>2:01 pm</td>
+            <td><button class="btn">Preview</button></td>
+            <td class="dots">⋮</td>
           </tr>
 
           <tr>
-            <td class="doc-cell">
-              <input type="checkbox" class="doc-checkbox" />
-              <input type="text" class="doc-title" value="Title of Document Goes Here" />
+            <td><input type="checkbox"></td>
+            <td class="doc-title">Title of Document Goes Here</td>
+            <td>
+              <span class="badge grey">Pending</span>
+              <div class="sub">Waiting for 2 people</div>
             </td>
-            <td><span class="badge green">Completed</span></td>
-            <td class="date-time">
-              <span>10/22/2024</span><br>
-              <span>2:01 pm</span>
-            </td>
-            <td class="action-cell">
-              <button>Download PDF</button>
-              <span class="dots">⋮</span>
-            </td>
+            <td class="date">10/22/2024<br>2:01 pm</td>
+            <td><button class="btn">Preview</button></td>
+            <td class="dots">⋮</td>
           </tr>
+
           <tr>
-            <td class="doc-cell">
-              <input type="checkbox" class="doc-checkbox" />
-              <input type="text" class="doc-title" value="Title of Document Goes Here" />
-            </td>
+            <td><input type="checkbox"></td>
+            <td class="doc-title">Title of Document Goes Here</td>
             <td><span class="badge green">Completed</span></td>
-            <td class="date-time">
-              <span>10/22/2024</span><br>
-              <span>2:01 pm</span>
-            </td>
-            <td class="action-cell">
-              <button>Download PDF</button>
-              <span class="dots">⋮</span>
-            </td>
+            <td class="date">10/22/2024<br>2:01 pm</td>
+            <td><button class="btn">Download PDF</button></td>
+            <td class="dots">⋮</td>
           </tr>
+
           <tr>
-            <td class="doc-cell">
-              <input type="checkbox" class="doc-checkbox" />
-              <input type="text" class="doc-title" value="Title of Document Goes Here" />
-            </td>
+            <td><input type="checkbox"></td>
+            <td class="doc-title">Title of Document Goes Here</td>
             <td><span class="badge green">Completed</span></td>
-            <td class="date-time">
-              <span>10/22/2024</span><br>
-              <span>2:01 pm</span>
-            </td>
-            <td class="action-cell">
-              <button>Download PDF</button>
-              <span class="dots">⋮</span>
-            </td>
+            <td class="date">10/22/2024<br>2:01 pm</td>
+            <td><button class="btn">Download PDF</button></td>
+            <td class="dots">⋮</td>
           </tr>
+
+          <tr>
+            <td><input type="checkbox"></td>
+            <td class="doc-title">Title of Document Goes Here</td>
+            <td><span class="badge green">Completed</span></td>
+            <td class="date">10/22/2024<br>2:01 pm</td>
+            <td><button class="btn">Download PDF</button></td>
+            <td class="dots">⋮</td>
+          </tr>
+
         </tbody>
       </table>
+
     </div>
+
   </main>
+
 </div>
+
 </body>
 </html>
