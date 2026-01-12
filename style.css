@@ -23,13 +23,16 @@ body {
 }
 
 .logo {
-  width: 122;
-height: 31.870330810546875;
-top: 36px;
-left: 35px;
-opacity: 1;
-
+ 
+  width: 122px;
+  height: 28px;   
+  top: 36px;
+  left: 35px;
+  opacity: 1;
 }
+
+
+
 
 .user-card {
   display: flex;
