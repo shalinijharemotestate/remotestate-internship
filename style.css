@@ -1,3 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300..700&display=swap");
+@font-face {
+  font-family: "CarnokyType Zin Display Condensed";
+  src: url("assets/Fonts/CarnokyType\ -\ Zin\ Display\ Condensed\ Demo.otf")
+    format("opentype");
+}
+
+
 * {
   margin: 0;
   padding: 0;
@@ -20,6 +28,7 @@ body {
   padding: 24px;
   display: flex;
   flex-direction: column;
+  gap: 25px;
 }
 
 .logo {
@@ -30,9 +39,10 @@ body {
   left: 35px;
   opacity: 1;
 }
-
-
-
+#subwait {
+  font-weight: 600;
+  color: rgba(67, 109, 124, 1);
+}
 
 .user-card {
   display: flex;
@@ -158,6 +168,11 @@ h1 {
   background: #fff;
   border-radius: 10px;
   padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex-content: space-between;
+
 }
 
 table {
@@ -166,9 +181,11 @@ table {
 }
 
 th, td {
-  padding: 14px;
-  font-size: 14px;
+  padding: 14px 16px;
+  text-align: left;
+  vertical-align: middle;
 }
+
 
 thead tr {
   border-bottom: 1px solid #e5e7eb;
@@ -222,9 +239,19 @@ tbody tr:not(:last-child) {
   border-radius: 6px;
   border: 1px solid #cbd5f5;
   background: #fff;
+  min-width: 115px;
 }
 
 .dots {
   font-size: 20px;
   text-align: center;
+}
+.navAdd
+{
+  padding: 10px;
+  background-color: transparent;
+  border: 1px solid #b5bdcd;
+  border-radius: 3px;
+  color: #626d82;
+  align-items: center;
 }

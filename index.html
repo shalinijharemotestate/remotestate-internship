@@ -6,6 +6,7 @@
   <title>Neptune Documents</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <script src="app.js"></script>
 
   <link rel="stylesheet" href="style.css">
 </head>
@@ -69,6 +70,7 @@
       <div class="breadcrumb">Home &gt; Documents</div>
 
       <div class="search-box">
+         <button class="navAdd">Add</button>
         <input type="text" placeholder="Search documents">
         <img src="image/Layer_1.png">
       </div>
@@ -106,7 +108,7 @@
             <td class="doc-title">Title of Document Goes Here</td>
             <td>
               <span class="badge grey">Pending</span>
-              <div class="sub">Waiting for 1 person</div>
+              <div class="sub">Waiting for <b id="subwait" >1 person</b></div>
             </td>
             <td class="date">10/22/2024<br>2:01 pm</td>
             <td><button class="btn">Preview</button></td>
@@ -118,7 +120,7 @@
             <td class="doc-title">Title of Document Goes Here</td>
             <td>
               <span class="badge grey">Pending</span>
-              <div class="sub">Waiting for 2 people</div>
+              <div class="sub">Waiting for <b id="subwait">2 people</b></div>
             </td>
             <td class="date">10/22/2024<br>2:01 pm</td>
             <td><button class="btn">Preview</button></td>
