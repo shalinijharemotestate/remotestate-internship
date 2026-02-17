@@ -1,145 +1,111 @@
-
-const tableBody = document.querySelector("tbody");
-const addBtn = document.querySelector(".navAdd");
-const searchInput = document.querySelector(".search-box input");
-
-const STORAGE_KEY = "neptuneDocs";
-
-function getDocs() {
-  return JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
-}
-
-function setDocs(docs) {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(docs));
-}
-
-
-function getTime() {
-  return new Date().toLocaleTimeString("en-US", {
-    hour: "2-digit",
-    minute: "2-digit",
-  });
-}
-
-function createRow(doc) {
-  let badgeClass = "blue";
-  let btnText = "Sign now";
-  let subHTML = "";
-
-  if (doc.status === "Pending") {
-    badgeClass = "grey";
-    btnText = "Preview";
-    subHTML = `
-      <div class="sub">
-        Waiting for <b id="subwait">${doc.people}</b>
-      </div>`;
-  }
-
-  if (doc.status === "Completed") {
-    badgeClass = "green";
-    btnText = "Download PDF";
-  }
-
-  return `
-    <tr data-id="${doc.id}">
-      <td><input type="checkbox"></td>
-      <td class="doc-title">${doc.name}</td>
-      <td>
-        <span class="badge ${badgeClass}">${doc.status}</span>
-        ${subHTML}
-      </td>
-      <td class="date">${doc.date}<br>${doc.time}</td>
-      <td><button class="btn">${btnText}</button></td>
-      <td class="dots">⋮</td>
-    </tr>
-  `;
-}
-
-
-function loadDocuments(query = "") {
-  const docs = getDocs();
-  tableBody.innerHTML = "";
-
-  const filtered = docs.filter(d =>
-    d.name.toLowerCase().includes(query.toLowerCase())
-  );
-
-  if (filtered.length === 0) {
-    tableBody.innerHTML = `
-      <tr>
-        <td colspan="6" style="text-align:center;color:#94a3b8">
-          No documents found
-        </td>
-      </tr>`;
-    return;
-  }
-
-  filtered.forEach(doc => {
-    tableBody.insertAdjacentHTML("beforeend", createRow(doc));
-  });
-}
-
-function addDocument() {
-  const name = prompt("Enter document name:");
-  if (!name) return;
-
-  const status = prompt(
-    "Enter status:\nNeeds Signing / Pending / Completed",
-    "Needs Signing"
-  );
-  if (!status) return;
-
-  let people = "";
-  if (status === "Pending") {
-    people = prompt("How many people are involved?", "1");
-    if (!people) return;
-  }
-
-  const date = prompt("Enter date (MM/DD/YYYY):");
-  if (!date) return;
-
-  const docs = getDocs();
-
-  docs.push({
-    id: crypto.randomUUID(),
-    name: name.trim(),
-    status,
-    people,
-    date,
-    time: getTime(),
-  });
-
-  setDocs(docs);
-  loadDocuments(searchInput.value);
-}
-
-function deleteDoc(id) {
-  const docs = getDocs().filter(d => d.id !== id);
-  setDocs(docs);
-  loadDocuments(searchInput.value);
-}
-
-
-addBtn.addEventListener("click", addDocument);
-
-searchInput.addEventListener("input", e => {
-  loadDocuments(e.target.value);
-});
-
-tableBody.addEventListener("click", e => {
-  const row = e.target.closest("tr");
-  if (!row) return;
-
-  const id = row.dataset.id;
-
-  if (e.target.classList.contains("dots")) {
-    const action = prompt("Type: edit or delete");
-
-    if (action === "delete") {
-      deleteDoc(id);
+document.addEventListener("DOMContentLoaded", () => {
+    const addBtn = document.querySelector(".navAdd");
+    const dialog = document.getElementById("addDocument");
+    const tbody = document.querySelector("tbody");
+    const nameInput = document.getElementById("addName");
+    const statusInput = document.getElementById("addStatus");
+    const dateInput = document.getElementById("newDate");
+    const timeInput = document.getElementById("newTime");
+    const peopleInput = document.getElementById("addPeople");
+    const addBtnForm = document.getElementById("addDocumentbutton");
+    const cancelBtn = document.getElementById("cancelBtn");
+    let editRow = null;
+    function actionBtn(status) {
+        if (status === "Needs Signing")
+            return `<button class="btn" onclick="alert('Opening signature flow...')">Sign Now</button>`;
+        if (status === "Pending")
+            return `<button class="btn" onclick="alert('Opening preview...')">Preview</button>`;
+        return `<button class="btn" onclick="alert('Downloading PDF...')">Download PDF</button>`;
     }
-  }
+    addBtn.addEventListener("click", () => {
+        autoDateTime();
+        dialog.showModal();
+    });
+    cancelBtn.addEventListener("click", () => {
+        resetForm();
+        dialog.close();
+    });
+    addBtnForm.addEventListener("click", (e) => {
+        e.preventDefault();
+        const name = nameInput.value.trim();
+        const status = statusInput.value;
+        const date = formatDate(dateInput.value, timeInput.value);
+        const people = peopleInput.value || "—";
+        if (!name)
+            return;
+        if (editRow) {
+            editRow.querySelector(".doc-title").innerText = name;
+            editRow.querySelector(".badge").className = `badge ${statusClass(status)}`;
+            editRow.querySelector(".badge").innerText = status;
+            editRow.querySelector(".date").innerText = date;
+            editRow = null;
+        }
+        else {
+            const tr = document.createElement("tr");
+            tr.innerHTML = `
+        <td><input type="checkbox"></td>
+        <td class="doc-title">${name}</td>
+        <td>
+          <span class="badge ${statusClass(status)}">${status}</span>
+        </td>
+        <td class="date">${date}</td>
+        <td>${actionBtn(status)}</td>
+        <td class="dots">⋮
+          <div class="dropdown-box">
+            <a href="#" class="edit">Edit</a>
+            <a href="#" class="delete">Delete</a>
+          </div>
+        </td>
+      `;
+            tbody.appendChild(tr);
+        }
+        resetForm();
+        dialog.close();
+    });
+    tbody.addEventListener("click", (e) => {
+        const target = e.target;
+        if (target.classList.contains("edit")) {
+            e.preventDefault();
+            const row = target.closest("tr");
+            editRow = row;
+            nameInput.value = row.querySelector(".doc-title").innerText;
+            statusInput.value = row.querySelector(".badge").innerText;
+            autoDateTime();
+            dialog.showModal();
+        }
+        if (target.classList.contains("delete")) {
+            e.preventDefault();
+            target.closest("tr").remove();
+        }
+    });
+    function autoDateTime() {
+        const now = new Date();
+        dateInput.value = now.toISOString().split("T")[0];
+        timeInput.value = now.toTimeString().slice(0, 5);
+    }
+    function formatDate(date, time) {
+        if (!date)
+            return "";
+        const d = new Date(`${date}T${time || "00:00"}`);
+        return d.toLocaleString("en-IN", {
+            day: "2-digit",
+            month: "short",
+            year: "numeric",
+            hour: "2-digit",
+            minute: "2-digit",
+        });
+    }
+    function statusClass(status) {
+        if (status === "Needs Signing")
+            return "blue";
+        if (status === "Pending")
+            return "grey";
+        return "green";
+    }
+    function resetForm() {
+        nameInput.value = "";
+        statusInput.selectedIndex = 0;
+        peopleInput.value = "";
+        editRow = null;
+    }
 });
-
-
-loadDocuments();

@@ -1,321 +1,416 @@
 a {
-  color: inherit;
-  text-decoration: none;
+    color: inherit;
+    text-decoration: none;
 }
 
-
-
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Spline Sans", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Spline Sans", sans-serif;
 }
 
 body {
-  background: #f6f4ef;
+    background: #f3f2f1;
 }
 
 .app {
-  display: flex;
-  min-height: 100vh;
+    display: flex;
+    height: 100vh;
 }
 
 .sidebar {
-  width: 280px;
-  background: #fff;
-  padding: 24px;
-  display: flex;
-  flex-direction: column;
-  gap: 25px;
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
 }
 
-.logo {
- 
-  width: 122px;
-  height: 28px;   
-  top: 36px;
-  left: 35px;
-  opacity: 1;
-}
 #subwait {
-  font-weight: 600;
-  color: rgba(67, 109, 124, 1);
+    font-weight: 600;
+    color: rgba(67, 109, 124, 1);
 }
-.user-dropdown {
-  position: relative;
-  width: fit-content;
-}
-
 
 .user-card {
-   display: flex;
-  gap: 12px;
-  padding: 12px;
-  border: 1px solid #e5e7eb;
-  border-radius: 6px;
-  margin-bottom: 24px;
+    display: flex;
+    padding: 12px;
+    gap: 12px;
+    border: 1px solid #e5e7eb;
+    border-radius: 6px;
 }
 
 .user-img {
-  width: 36px;
-  height: 36px;
-
+    width: 36px;
+    height: 36px;
 }
+
 .user-role {
-  font-size: 12px;
-  color: #6b7280;
+    font-size: 12px;
+    color: #6b7280;
 }
-
 
 .user-info {
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
 }
 
 .user-name {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-weight: 600;
-  font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 600;
+    font-size: 14px;
 }
 
-.arrow {
-  width: 10px;
-  height: 10px;
-  opacity: 0.6;
-}
-
-/* dropdown */
 .dropdown-box {
-  display: none;
-  position: absolute;
-  top: 55px;
-  right: 0;
-  background: #ffffff;
-  border: 1px solid #ddd;
-  border-radius: 6px;
+    display: none;
+    position: absolute;
+    top: 55px;
+    right: 0;
+    background: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 6px;
 }
 
 .dropdown-box a {
-  display: block;
-  padding: 8px 12px;
-  text-decoration: none;
-  font-size: 14px;
+    display: block;
+    padding: 8px 12px;
+    text-decoration: none;
+    font-size: 14px;
 }
 
 .dropdown-box a:hover {
-  background: #f5f5f5;
+    background: #f5f5f5;
 }
 
-/* show dropdown on hover */
 .user-dropdown:hover .dropdown-box {
-  display: block;
+    display: block;
 }
-
 
 .menu {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  color: inherit;
-  text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    color: inherit;
+    text-decoration: none;
 }
 
 .menu-item {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  padding: 10px 12px;
-  border-radius: 8px;
-  color: #64748b;
- 
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    color: #64748b;
 }
 
 .menu-item img {
-  width: 24px;
-  height: 24px;
+    width: 24px;
+    height: 24px;
 }
 
 .menu-item.active {
-  background: rgba(211, 247, 181, 1);
-  color: rgba(31, 68, 81, 1);
-;
-}
-
-.sidebar-footer {
-  margin-top: auto;
+    background: rgba(211, 247, 181, 1);
+    color: rgba(31, 68, 81, 1);
 }
 
 .sidebar-footer img {
-  width: 24px;
-  margin-bottom: 10px;
+    width: 24px;
 }
 
 .footer-title {
-  font-weight: 500;
-  font-size: 24px;
-  margin-bottom: 6px;
-  color: rgba(31, 68, 81, 1);
-
+    font-weight: 500;
+    font-size: 24px;
+    margin-bottom: 6px;
+    color: rgba(31, 68, 81, 1);
 }
 
 .footer-text {
-  font-size: 13px;
-  color: #64748b;
-  margin-bottom: 12px;
+    font-size: 13px;
+    color: #64748b;
+    margin-bottom: 12px;
 }
 
 .sidebar-footer button {
-  width: 120px;
-  padding: 8px;
-  background: rgba(31, 68, 81, 1);
-  color: #fff;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
+    width: 120px;
+    padding: 8px;
+    background: rgba(31, 68, 81, 1);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
 }
 
 .main {
-  flex: 1;
-  padding: 32px 40px;
+    flex: 1;
+    padding: 32px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
 }
 
 .top-bar {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 20px;
-  gap:20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
-.top-breadcrumb { 
-  font-size: 13px;    color: #CBD5E1;    margin-bottom: 20px;}
+.search-container {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.top-breadcrumb {
+    font-size: 13px;
+    color: #cbd5e1;
+}
+
 .top-breadcrumb .sep {
-  margin: 0 10px;
-  color: #E5E7EB;
+    margin: 0 10px;
+    color: #e5e7eb;
 }
+
 .top-breadcrumb .muted {
-  color: #CBD5E1;
+    color: #cbd5e1;
 }
 
 .search-box {
-  position: relative;
+    position: relative;
+    display: flex;
+    align-items: center;
 }
 
 .search-box input {
-  width: 240px;
-  padding: 10px 40px 10px 12px;
-  border-radius: 8px;
-  border: 1px solid #e5e7eb;
+    width: 240px;
+    padding: 10px 40px 10px 12px;
+    border-radius: 8px;
+    border: 1px solid #e5e7eb;
 }
 
 .search-box img {
-  position: absolute;
-  right: 12px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 16.65px;
+    position: absolute;
+    right: 8px;
 }
 
 h1 {
-  font-size: 28px;
-  font-weight: 600;
-  margin-bottom: 24px;
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 24px;
 }
 
 .table-wrapper {
-  background: #fff;
-  border-radius: 10px;
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  flex-content: space-between;
-
+    background: #fff;
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
 }
 
 table {
-  width: 100%;
-  border-collapse: collapse;
+    width: 100%;
+    border-collapse: collapse;
 }
 
-th, td {
-  padding: 14px 16px;
-  text-align: left;
-  vertical-align: middle;
+th,
+td {
+    padding: 14px 16px;
+    text-align: left;
+    vertical-align: middle;
 }
-
 
 thead tr {
-  border-bottom: 1px solid #e5e7eb;
+    border-bottom: 1px solid #e5e7eb;
 }
 
 tbody tr:not(:last-child) {
-  border-bottom: 1px solid #eef2f7;
+    border-bottom: 1px solid #eef2f7;
 }
 
 .doc-title {
-  color: rgba(67, 109, 124, 1);
+    color: rgba(67, 109, 124, 1);
 
-  font-weight: 600;
+    font-weight: 600;
 }
 
 .date {
-  color: #64748b;
+    color: #64748b;
 }
 
 .badge {
-  padding: 6px 12px;
-  border-radius: 20px;
-  font-size: 12px;
-  display: inline-block;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    display: inline-block;
 }
 
 .badge.blue {
-   background: rgba(67, 109, 124, 1);
-   color: rgba(255, 255, 255, 1);
-  
-
-
+    background: rgba(67, 109, 124, 1);
+    color: rgba(255, 255, 255, 1);
 }
 
 .badge.grey {
-  background: #e5e7eb;
-  color: #374151;
+    background: #e5e7eb;
+    color: #374151;
 }
 
 .badge.green {
-  background: rgba(211, 247, 181, 1);
+    background: rgba(211, 247, 181, 1);
 
-  color: rgba(31, 68, 81, 1);
-
+    color: rgba(31, 68, 81, 1);
 }
 
 .sub {
-  font-size: 12px;
-  color: #94a3b8;
-  margin-top: 4px;
+    font-size: 12px;
+    color: #94a3b8;
+    margin-top: 4px;
 }
 
 .btn {
-  padding: 6px 12px;
-  border-radius: 6px;
-  border: 1px solid #cbd5f5;
-  background: #fff;
-  min-width: 115px;
-  cursor: pointer;
+    padding: 6px 12px;
+    border-radius: 6px;
+    border: 1px solid #cbd5f5;
+    background: #fff;
+    min-width: 115px;
+    cursor: pointer;
 }
 
 .dots {
-  font-size: 20px;
-  text-align: center;
+    font-size: 20px;
+    text-align: center;
 }
-.navAdd
-{
-  padding: 10px;
-  border: 1px solid #b5bdcd;
-  border-radius: 6px;
-  color: #fff 
-  align-items: center;
-  cursor: pointer;
+
+.navAdd {
+    padding: 10px;
+    border: 1px solid #b5bdcd;
+    border-radius: 6px;
+    color: #ffffff;
+    align-items: center;
+    cursor: pointer;
+    font-size: 15px;     
+    background: rgba(31, 68, 81, 1);
+    height: 40px;         
+    width: 100px;        
+}
+
+.left-content {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: white;
+    padding: 24px;
+}
+.dots {
+    position: relative;
+    cursor: pointer;
+}
+
+.dropdown-box {
+    position: absolute;
+    right: 0;
+    top: 22px;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 6px;
+    display: none;
+    min-width: 100px;
+    z-index: 10;
+}
+
+.dots:hover .dropdown-box {
+    display: block;
+}
+
+.dropdown-box a {
+    padding: 6px 10px;
+    font-size: 13px;
+}
+.navAdd {
+    background: rgba(31, 68, 81, 1);
+}
+
+dialog {
+    border: none;
+    border-radius: 14px;
+    padding: 28px 24px;
+    width: 380px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.18);
+    z-index: 1000;
+}
+
+dialog::backdrop {
+    background: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(2px);
+}
+
+dialog h2 {
+    font-size: 17px;
+    font-weight: 700;
+    color: rgba(31, 68, 81, 1);
+    margin-bottom: 18px;
+}
+
+dialog form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+dialog input,
+dialog select {
+    width: 100%;
+    padding: 10px 13px;
+    border: 1.5px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: inherit;
+    outline: none;
+    transition: border-color .2s, box-shadow .2s;
+}
+
+dialog input:focus,
+dialog select:focus {
+    border-color: rgba(67, 109, 124, 1);
+    box-shadow: 0 0 0 3px rgba(67,109,124,.12);
+}
+
+dialog button[type="submit"] {
+    flex: 1;
+    padding: 10px;
+    background: rgba(31, 68, 81, 1);
+    color: #fff;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    font-size: 14px;
+    font-family: inherit;
+    font-weight: 600;
+    
+}
+
+dialog button[type="submit"]:hover {
+    background: rgba(67, 109, 124, 1);
+}
+
+dialog button[type="button"] {
+    flex: 1;
+    padding: 10px;
+    background: #f1f5f9;
+    color: #374151;
+    border: 1.5px solid #e5e7eb;
+    border-radius: 7px;
+    cursor: pointer;
+    font-size: 14px;
+    font-family: inherit;
+    font-weight: 600;
+}
+
+dialog button[type="button"]:hover {
+    background: #e2e8f0;
 }
